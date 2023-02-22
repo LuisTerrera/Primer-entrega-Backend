@@ -17,7 +17,7 @@ const NavBar = () => {
     <Flex minWidth='max-content' alignItems='center' gap='2' bg="gray.200" maxH= "55">
     <Box p='4'>
     <Link to="/">
-            <Heading size='md'>E-Commerce</Heading>
+            <Heading size='md'>Bolívar Vip</Heading>
     </Link >
     </Box>
     <Spacer />
