@@ -32,13 +32,13 @@ const NavBar = () => {
           </button>
         <ul className="dropdown-menu">
         <Link to={`/category/${"Tecnología"}`}>
-                <li><p className="dropdown-item">Tecnología</p></li>
+              <li><p className="dropdown-item">Tecnología</p></li>
               </Link >
               <Link to={`/category/${"Salud"}`}>
-                <li><p className="dropdown-item">Salud</p></li>
+              <li><p className="dropdown-item">Salud</p></li>
               </Link >
               <Link to={`/category/${"Cuidado personal"}`}>
-               <li><p className="dropdown-item" >Cuidado personal</p></li>
+              <li><p className="dropdown-item" >Cuidado personal</p></li>
               </Link >
         </ul>
       </div>
