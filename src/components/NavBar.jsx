@@ -31,7 +31,7 @@ const NavBar = () => {
             Categorías
           </button>
         <ul className="dropdown-menu">
-        <Link to={`/category/${"Tecnología"}`}>
+        <Link to={`/category/"Tecnología"`}>
               <li><p className="dropdown-item">Tecnología</p></li>
               </Link >
               <Link to={`/category/${"Salud"}`}>

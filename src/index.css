@@ -23,6 +23,25 @@
 .chakra-stack{
   text-align: center;
 }
+.imgDetail{
+  width: 250px;
+  height: 250px;
+  align-self: center;
+}
+.detailContainer{
+  margin:10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardDetail{
+  width: 60%;
+}
+
+:root {
+  --price-tag-background: #7f8183;
+  --price-tag-height: 2rem;
+}
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
