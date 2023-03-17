@@ -1,45 +1,38 @@
-import React, { useEffect,useState }  from 'react';
-import ItemList from './ItemList'
-import Data from "./data.json"
+import React, { useEffect, useState } from 'react';
+import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
+import { Spinner } from '@chakra-ui/react';
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 
-const ItemListContainer = ({}) => {
-  
-  const {category} = useParams()
-  ///promise
-  const getDatos = () =>{
-    return new Promise((resolve,reject)=>{
-      if(Data.length === 0){
-        reject(new Error ("No hay datos"))
-      }
-        setTimeout(()=>{
-          resolve(Data)
-        }, 2000);
+const ItemListContainer = () => {
+
+  const {cat} = useParams();
+  const [product, setProduct] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const db = getFirestore();
+    const productCollection = collection(db, "productos");
+    getDocs(productCollection).then((querySnapshot) => {
+      const producto = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setProduct(producto);
+      setLoading(false)
     });
-  }
-  ///async 
-  async function fetchingData(){
-    try{
-    const datosFetched = await getDatos();
-    return datosFetched;
-    }catch (err){
-      console.log(err);
-    }
-  }
-
-  const [product, setProduct] = useState([])
-
-  useEffect(() =>{
-    fetchingData().then((product) => setProduct(product))
-  }, [])
-
-  const filtroCategoria = product.filter((productos) => productos.categoria === category);
+  }, []);
   
+  const filtroCategoria = product.filter((productos) => productos.cat === cat);
+
   return (
     <div>
-      {category ? <ItemList productos={filtroCategoria}/> : <ItemList productos={product}/>}
+      {loading? 
+      <div className='spinner'><Spinner/></div>
+      : (cat ? <ItemList productos={filtroCategoria}/> : <ItemList productos={product}/>)
+      }
     </div>
-  )
-}
+  );
+};
 
-export default ItemListContainer
+export default ItemListContainer;

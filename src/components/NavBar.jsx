@@ -1,5 +1,5 @@
-import React from 'react'
-import CartWidget from './CartWidget'
+import React from 'react';
+import CartWidget from './CartWidget';
 import {
   Menu,
   Button,
@@ -8,46 +8,51 @@ import {
   Spacer,
   Heading,
   ButtonGroup
-} from '@chakra-ui/react'
+
+} from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-  <div>
-    <Flex minWidth='max-content' alignItems='center' gap='2' bg="gray.200" maxH= "55">
-    <Box p='4'>
-    <Link to="/">
-            <Heading size='md'>Bolívar Vip</Heading>
-    </Link >
-    </Box>
-    <Spacer />
-    <ButtonGroup gap='2' p='4'>
-    <Menu>
-    <Link to="/">
+    <div>
+      <Flex minWidth='max-content' alignItems='center' gap='2' bg="gray.200" maxH= "55">
+        <Box p='4'>
+          <Link to="/">
+            <Heading size='md'>E-Commerce</Heading>
+          </Link >
+        </Box>
+        <Spacer />
+        <ButtonGroup gap='2' p='4'>
+        <Menu>
+          <Link to="/">
             <button className="btn" type="button">Catálogo</button>
           </Link >
-      <div className="dropdown">
-          <button className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Categorías
-          </button>
-        <ul className="dropdown-menu">
-        <Link to={`/category/"Tecnología"`}>
-              <li><p className="dropdown-item">Tecnología</p></li>
+          <div className="dropdown">
+              <button className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categorías
+              </button>
+            <ul className="dropdown-menu">
+              <Link to={`/category/tecno`}>
+                <li><p className="dropdown-item">Tecnología</p></li>
               </Link >
-              <Link to={`/category/${"Salud"}`}>
-              <li><p className="dropdown-item">Salud</p></li>
+              <Link to={`/category/salud`}>
+                <li><p className="dropdown-item">Salud</p></li>
               </Link >
-              <Link to={`/category/${"Cuidado personal"}`}>
+              <Link to={`/category/cuidado`}>
               <li><p className="dropdown-item" >Cuidado personal</p></li>
               </Link >
-        </ul>
-      </div>
-    </Menu>
-    <Button bg="gray.100"><CartWidget/></Button>
-    </ButtonGroup>
-    </Flex>
-  </div>
-  )
-}
+            </ul>
+          </div>
+        </Menu>
+        <Link to={`/cart`}>
+          <Button bg="gray.100">
+            <CartWidget/>
+          </Button>
+        </Link>
+        </ButtonGroup>
+      </Flex>
+    </div>
+  );
+};
 
-export default NavBar
+export default NavBar;
