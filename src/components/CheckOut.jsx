@@ -62,7 +62,7 @@ return (
             <Heading m="10px" as='h3' size='md'>Confirmación de compra</Heading>
             {items.map((item)=>{
             return(
-                <p>{item.nombre} - Cantidad: {item.cantidad}</p>)
+                <p key={item.id} > - Cantidad: {item.cantidad}</p>)
             })} 
             <Text m="3px">Total: ${total} </Text>
             <Heading m="10px" as='h3' size='sm'>Verifique que sus datos sean correctos:</Heading>
